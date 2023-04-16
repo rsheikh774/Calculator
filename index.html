@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALCULATOR</title>
+    <style>
+        @media (max-width: 480px) {
+  .container {
+    width: 90%;
+  }
+
+  button {
+    width: 25%;
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  .row input {
+    width: 100%;
+    font-size: 16px;
+  }
+}
+
+body{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(212, 212, 210);
+
+}
+.text-center{
+    text-align: center;
+}
+.box{
+    border: 10px solid black;
+}
+.container{
+    margin: auto;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    background-color: rgb(28, 28, 28);
+    border-radius: 20px;
+    width: 311px;
+
+}
+.color{
+    background-color: rgb(255, 149, 0);
+}
+button{
+    width: 66px;
+    padding: 20px;
+    margin: 0 3px;
+    border: 2px solid black;
+    background-color: rgb(80, 80, 80);
+    border-radius: 100px;
+    cursor: pointer;
+    opacity: 0.6;
+}
+button:hover{
+    border-color: #2691d9;
+    transition: 1s;
+}
+.row{
+    margin: 8px 0;
+}
+.row input{
+    text-align: right;
+    width: 291px;
+    margin: 0px;
+    padding: 10px 0px;
+    border: 2px solid black;
+    border-radius: 10px;
+    font-size: 20px;
+    background-color: rgb(28, 28, 28);
+    color: white;
+}
+    </style>
+</head>
+<body>
+    <h1 class="text-center">Calculator made by Rehan Shekh</h1>
+    <div class="container"> 
+        <div class="row">
+            <input class="input" type="text
+            " value="0">
+        </div>
+        <div class="row">
+            <button class="button">C</button>
+            <button class="button">%</button>
+            <button class="button">(</button>
+            <button class="button color">/</button>
+        </div>
+        <div class="row">
+            <button class="button">7</button>
+            <button class="button">8</button>
+            <button class="button">9</button>
+            <button class="button color">X</button>
+        </div>
+        <div class="row">
+            <button class="button">4</button>
+            <button class="button">5</button>
+            <button class="button">6</button>
+            <button class="button color">-</button>
+        </div>
+        <div class="row">
+            <button class="button">1</button>
+            <button class="button">2</button>
+            <button class="button">3</button>
+            <button class="button color">+</button>
+        </div>
+        <div class="row">
+            <button class="button">0</button>
+            <button class="button">.</button>
+            <button class="button">)</button>
+            <button class="button color">=</button>
+        </div> 
+
+    </div>
+    <script>
+        let string = "";
+let buttons = document.querySelectorAll('.button');
+Array.from(buttons).forEach((button)=>{
+    button.addEventListener('click', (e)=>{
+        if(e.target.innerHTML == '='){
+            string= eval(string);
+            document.querySelector('input').value = string;
+        }
+        else if(e.target.innerHTML == 'C'){
+            string= "";
+            document.querySelector('input').value = string;
+        }
+        else{
+            console.log(e.target); 
+        string  = string + e.target.innerHTML;
+        document.querySelector('input').value = string;
+        }
+    })
+})
+    </script>
+
+</body>
+</html>
